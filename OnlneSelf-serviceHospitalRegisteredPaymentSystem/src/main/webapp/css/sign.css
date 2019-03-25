@@ -1,0 +1,81 @@
+#mainbox1 {
+    width: 960px;
+    height: 432px;
+    margin: 50px auto;
+    background-image: url("../image/signread.jpg");
+    background-repeat: no-repeat;
+    background-size: 576px 432px;
+}
+#mainbox1_1 {
+    width: 362px;
+    height: 432px;
+    border: 1px solid #eef2f4;
+    float: right;
+}
+#mainbox1_1_1 {
+    width: 310px;
+    height: 36px;
+    margin: 50px auto 0px auto;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+}
+#mainbox1_1_2 {
+    width: 310px;
+    height: 36px;
+    margin: 100px auto 0px auto;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+}
+.setimg {
+    width: 576px;
+    height: 432px;
+}
+.setp1 {
+    margin-top: 21px;
+    margin-left: 25px;
+    font-size: 18px;
+}
+.search {
+    width: 30px;
+    margin-right: 10px;
+    height: 36px;
+    float: left;
+    background: url("../image/icon_20150706.png") 10px -110px no-repeat;
+}
+.textbox1 {
+    width: 270px;
+    height: 34px;
+    float: left;
+    border: 0;
+    outline: none;
+}
+.search2 {
+    width: 30px;
+    margin-right: 10px;
+    height: 36px;
+    float: left;
+    background: url("../image/icon_20150706.png") 10px -150px no-repeat;
+}
+.setp2 {
+    margin-top: 20px;
+    margin-left: 275px;
+    font-size: 12px;
+}
+.seta1 {
+    color: #1a66b3;
+}
+.button1 {
+    width: 311px;
+    height: 44px;
+    background-color: #f01923;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 25px;
+    border: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 44px;
+}
+.seta2 {
+    color: #6e6e6e;
+}

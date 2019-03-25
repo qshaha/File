@@ -1,0 +1,52 @@
+@charset "UTF-8";
+li {
+	list-style: none;
+}
+#title {
+	min-width: 1280px;
+	height: 90px;
+	border-bottom: 1px solid #E0E0E0;
+}
+#wrap {
+	width: 1280px;
+	height: 90px;
+	margin: 0 auto;
+	background: url("../image/logo.jpg") no-repeat left 10px;
+}
+#wrapright {
+	float: right;
+	margin-top: 35px;
+	position: relative;
+}
+#nav {
+	width: 750px;
+	height: 40px;
+	margin: 0 auto;
+	position: relative;
+}
+.contact {
+	height: 15px;
+	position: relative;
+	right: 30px;
+}
+.lifloat {
+	float: right;
+}
+.liborder {
+	padding-left: 30px;
+}
+.first {
+	margin: 0 auto;
+	white-space: nowrap;
+	display: inline;
+}
+.licenter {
+	width: 150px;
+	height: 45px;
+	display: inline-block;
+	white-space: nowrap;
+	float: left;
+}
+.navp {
+	line-height: 45px;
+}
