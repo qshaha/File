@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body { 
+    font-family: "华文楷体";
+    background-color: #f6f9f6;
+}
+a {
+    text-decoration: none;
+}
+#home {
+    width: 100%;
+}
+#header {
+	width: 960px;
+    height: 70px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-bottom: 3px solid #f07700;
+    border-top: 3px solid #ebeeef;
+}
+#main {
+    width: 960px;
+    padding-top: 40px;
+    margin: 0 auto;
+}
+
+#tail {
+    min-height: 30px;
+    width: 950px;
+    margin: 0 auto;
+    border-top: 1px solid #ebebeb;
+}
+.setcenter {
+    text-align: center;
+}
+.tailp {
+    margin: 50px 0;
+}
