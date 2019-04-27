@@ -1,6 +1,7 @@
 package com.bilibilimao.controller;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,6 +60,54 @@ public class PatientController {
 			modelAndView.addObject("redirectpage", "/forget");
 			modelAndView.setViewName("erro");
 		}
+		return(modelAndView);
+	}
+	@RequestMapping("logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		Cookie[] cookies = request.getCookies();
+		if(cookies != null) {
+			for(Cookie cookie : cookies) {
+				if(cookie.getName().equals("patient")) {
+					patientService.removePatient(cookie.getValue());
+					cookie.setMaxAge(0);
+					cookie.setPath("/OnlneSelf-serviceHospitalRegisteredPaymentSystem");
+					response.addCookie(cookie);
+				}
+			}
+		}
+		return "redirect:/index2";
+	}
+	@RequestMapping("resetPassword")
+	public ModelAndView changePassword(Patient patient) {
+		ModelAndView modelAndView = new ModelAndView();
+		int success = patientService.updateToFindPassword(patient);
+		if(success > 0) {
+			modelAndView.setViewName("redirect:/patient/logout");
+		}
+		else {
+			modelAndView.addObject("erro", "密码修改失败，请重试");
+			modelAndView.addObject("redirectpage", "/resetPassword");
+			modelAndView.setViewName("erro");
+		}
+		return(modelAndView);
+	}
+	@RequestMapping("resetInfo")
+	public ModelAndView resetInfo(Patient patient, HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView modelAndView = new ModelAndView();
+		Cookie[] cookies = request.getCookies();
+		String uuid = null;
+		if(cookies != null) {
+			for(Cookie c : cookies) {
+				if(c.getName().equals("patient")) {
+					uuid = c.getValue();
+					patientService.updateToPatientInfo(patient, uuid);
+					modelAndView.setViewName("redirect:/personalInformation");
+					return(modelAndView);
+				}
+			}
+		}
+		modelAndView.addObject("erro", "用户信息修改失败请重试");
+		modelAndView.addObject("redirectpage", "/personalInformation");
 		return(modelAndView);
 	}
 }

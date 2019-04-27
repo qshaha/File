@@ -17,7 +17,12 @@
 				</dl>
 			</li>
 			<li class="layui-nav-item">
-				<a href="${pageContext.request.contextPath}/index2">个人信息</a>
+				<a name="heada" href="javascript:void(0);">个人中心</a>
+				<dl class="layui-nav-child">
+					<dd><a href="${pageContext.request.contextPath}/personalInformation">个人信息</a></dd>
+					<dd><a href="${pageContext.request.contextPath}/resetPassword">修改密码</a></dd>
+					<dd><a href="javascript:void(0);">科室导航</a></dd>
+				</dl>
 			</li>
 			<li class="layui-nav-item">
 				<a href="${pageContext.request.contextPath}/index2">预约挂号</a>
@@ -28,7 +33,7 @@
 		</ul>
 		<ul class="layui-nav layui-layout-right">
 			<li class="layui-nav-item">
-				<a href="javascript:;">欢迎来到文理医院</a>
+				<a href="javascript:void(0);">欢迎来到文理医院</a>
 			</li>
 			<%
 				if(request.getAttribute("patientinfo") == null) {					
@@ -44,10 +49,10 @@
 				else {
 			%>
 			<li class="layui-nav-item">
-				<a href="${pageContext.request.contextPath}/login">个人中心</a>
+				<a href="javascript:void(0);">${patientinfo.name}</a>
 			</li>
 			<li class="layui-nav-item">
-				<a href="${pageContext.request.contextPath}/register">退出登录</a>
+				<a href="${pageContext.request.contextPath}/patient/logout">退出登录</a>
 			</li>
 			<% } %>
 		</ul>

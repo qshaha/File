@@ -46,6 +46,8 @@
 			<mvc:mapping path="/patient/login" />
 			<mvc:mapping path="/register" />
 			<mvc:mapping path="/patient/register" />
+			<mvc:mapping path="/forget" />
+			<mvc:mapping path="/patient/forget" />
 			<bean class="com.bilibilimao.interceptor.ReLoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>

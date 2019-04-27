@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bilibilimao.mapper.DoctorMapper">
+	<sql id="Base_Doctor_List">
+		id, name, sex, birth, education, number, account, password, experience, level, workdate, position, photo, department, weak
+	</sql>
+	<resultMap type="com.bilibilimao.po.Doctor" id="DoctorResultMap">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="sex" property="sex" jdbcType="VARCHAR" />
+		<result column="birth" property="birth" jdbcType="DATE" />
+		<result column="education" property="education" jdbcType="VARCHAR" />
+		<result column="number" property="number" jdbcType="VARCHAR" />
+		<result column="account" property="account" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="experience" property="experience" />
+		<result column="level" property="level" jdbcType="INTEGER" />
+		<result column="workdate" property="workDate" jdbcType="DATE" />
+		<result column="position" property="position" jdbcType="VARCHAR" />
+		<result column="photo" property="photo" jdbcType="VARCHAR" />
+		<result column="department" property="department" jdbcType="VARCHAR" />
+		<result column="weak" property="weak" jdbcType="VARCHAR" />
+	</resultMap>
+	<parameterMap type="com.bilibilimao.po.Doctor" id="DoctorParameterMap">
+		<parameter property="id" resultMap="DoctorResultMap" />
+		<parameter property="name" resultMap="DoctorResultMap" />
+		<parameter property="sex" resultMap="DoctorResultMap" />
+		<parameter property="birth" resultMap="DoctorResultMap" />
+		<parameter property="education" resultMap="DoctorResultMap" />
+		<parameter property="number" resultMap="DoctorResultMap" />
+		<parameter property="account" resultMap="DoctorResultMap" />
+		<parameter property="password" resultMap="DoctorResultMap" />
+		<parameter property="experience" resultMap="DoctorResultMap" />
+		<parameter property="level" resultMap="DoctorResultMap" />
+		<parameter property="workDate" resultMap="DoctorResultMap" />
+		<parameter property="position" resultMap="DoctorResultMap" />
+		<parameter property="photo" resultMap="DoctorResultMap" />
+		<parameter property="department" resultMap="DoctorResultMap" />
+		<parameter property="weak" resultMap="DoctorResultMap" />
+	</parameterMap>
+	<insert id="insertDoctor" parameterMap="DoctorParameterMap" useGeneratedKeys="true" keyProperty="id">
+		insert into doctor (
+		<include refid="Base_Doctor_List" />
+		) values (
+		#{id, jdbcType=INTEGER},
+		#{name, jdbcType=VARCHAR},
+		#{sex, jdbcType=VARCHAR},
+		#{birth, jdbcType=DATE},
+		#{education, jdbcType=VARCHAR},
+		#{number, jdbcType=VARCHAR},
+		#{account, jdbcType=VARCHAR},
+		#{password, jdbcType=VARCHAR},
+		#{experience},
+		#{level, jdbcType=INTEGER},
+		#{workDate, jdbcType=DATE},
+		#{position, jdbcType=VARCHAR},
+		#{photo, jdbcType=VARCHAR},
+		#{department, jdbcType=VARCHAR},
+		#{weak, jdbcType=VARCHAR}
+		)
+	</insert>
+	<select id="findDoctor" parameterMap="DoctorParameterMap" resultMap="DoctorResultMap">
+		select
+		<include refid="Base_Doctor_List" />
+		from doctor
+		<where>
+			<if test="id != null and id != 0">and id = #{id, jdbcType=INTEGER}</if>
+			<if test="name != null and name != ''">and name = #{name, jdbcType=VARCHAR}</if>
+			<if test="sex != null and sex != ''">and sex = #{sex, jdbcType=VARCHAR}</if>
+			<if test="birth != null">and birth = #{birth, jdbcType=DATE}</if>
+			<if test="education != null and education != ''">and education = #{education, jdbcType=VARCHAR}</if>
+			<if test="number != null and number != ''">and number = #{number, jdbcType=VARCHAR}</if>
+			<if test="account != null and account != ''">and account = #{account, jdbcType=VARCHAR}</if>
+			<if test="password != null and password != ''">and password = #{password, jdbcType=VARCHAR}</if>
+			<if test="experience != null and experience != ''">and experience = #{experience}</if>
+			<if test="level != null and level != 0">and level = #{level, jdbcType=INTEGER}</if>
+			<if test="workDate != null">and workdate = #{workDate, jdbcType=DATE}</if>
+			<if test="position != null and position != ''">and position = #{position, jdbcType=VARCHAR}</if>
+			<if test="photo != null and photo != ''">and photo = #{photo, jdbcType=VARCHAR}</if>
+			<if test="department != null and department != ''">and department = #{department, jdbcType=VARCHAR}</if>
+			<if test="weak != null and weak != ''">and weak = #{weak, jdbcType=VARCHAR}</if>
+		</where>
+	</select>
+	<delete id="deleteDoctor" parameterMap="DoctorParameterMap">
+		delete from doctor
+		<where>
+			<if test="id != null and id != 0">and id = #{id, jdbcType=INTEGER}</if>
+			<if test="name != null and name != ''">and name = #{name, jdbcType=VARCHAR}</if>
+			<if test="sex != null and sex != ''">and sex = #{sex, jdbcType=VARCHAR}</if>
+			<if test="birth != null">and birth = #{birth, jdbcType=DATE}</if>
+			<if test="education != null and education != ''">and education = #{education, jdbcType=VARCHAR}</if>
+			<if test="number != null and number != ''">and number = #{number, jdbcType=VARCHAR}</if>
+			<if test="account != null and account != ''">and account = #{account, jdbcType=VARCHAR}</if>
+			<if test="password != null and password != ''">and password = #{password, jdbcType=VARCHAR}</if>
+			<if test="experience != null and experience != ''">and experience = #{experience}</if>
+			<if test="level != null and level != 0">and level = #{level, jdbcType=INTEGER}</if>
+			<if test="workDate != null">and workdate = #{workDate, jdbcType=DATE}</if>
+			<if test="position != null and position != ''">and position = #{position, jdbcType=VARCHAR}</if>
+			<if test="photo != null and photo != ''">and photo = #{photo, jdbcType=VARCHAR}</if>
+			<if test="department != null and department != ''">and department = #{department, jdbcType=VARCHAR}</if>
+			<if test="weak != null and weak != ''">and weak = #{weak, jdbcType=VARCHAR}</if>
+		</where>
+	</delete>
+	<update id="updateDoctor" parameterMap="DoctorParameterMap">
+		update doctor
+		<set>
+			<if test="name != null and name != ''">name = #{name, jdbcType=VARCHAR},</if>
+			<if test="sex != null and sex != ''">sex = #{sex, jdbcType=VARCHAR},</if>
+			<if test="education != null and education != ''">education = #{education, jdbcType=VARCHAR},</if>
+			<if test="number != null and number != ''">number = #{number, jdbcType=VARCHAR},</if>
+			<if test="password != null and password != ''">password = #{password, jdbcType=VARCHAR},</if>
+			<if test="experience != null and experience != ''">experience = #{experience},</if>
+			<if test="workDate != null">workdate = #{workDate, jdbcType=DATE},</if>
+			<if test="position != null and position != ''">position = #{position, jdbcType=VARCHAR},</if>
+			<if test="photo != null and photo != ''">photo = #{photo, jdbcType=VARCHAR},</if>
+			<if test="department != null and department != ''">department = #{department, jdbcType=VARCHAR},</if>
+			<if test="weak != null and weak != ''">weak = #{weak, jdbcType=VARCHAR},</if>
+		</set>
+		where id = #{id, jdbcType=INTEGER}
+	</update>
+</mapper>

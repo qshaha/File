@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
@@ -30,7 +29,6 @@ public class PublicController {
 	}
 	@RequestMapping("validcode")
 	public void verificationCode(HttpServletRequest request, HttpServletResponse response, String codeName) {
-		System.out.println(codeName);
 		String code = "";
 		BufferedImage bufferedImage = new BufferedImage(80, 38, BufferedImage.TYPE_INT_RGB);
 		Graphics2D graphics2d = bufferedImage.createGraphics();
@@ -62,7 +60,6 @@ public class PublicController {
 	@RequestMapping("checkcode")
 	@ResponseBody
 	public String checkCode(HttpServletRequest request, String code, String codeName) {
-		System.out.println(codeName);
 		String sessionCode = (String)request.getSession().getAttribute(codeName);
 		if(code.equals(sessionCode)) {
 			return("yes");
@@ -88,5 +85,11 @@ public class PublicController {
 		else {
 			return(s);
 		}
+	}
+	@RequestMapping("getOldPassword")
+	@ResponseBody
+	public String getOldPassword(String uuid) {
+		String oldPassword = publicService.findOldPassword(uuid);
+		return(oldPassword);
 	}
 }
